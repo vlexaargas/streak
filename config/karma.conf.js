@@ -15,7 +15,8 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       '../app/js/**/*.js',
-      '../tests/**/*Spec.js'
+      '../tests/**/*Spec.js',
+      '../tests/**/*.coffee'
     ],
 
 
@@ -23,6 +24,22 @@ module.exports = function(config) {
     exclude: [
 
     ],
+
+    preprocessors: {
+      '../**/*.coffee': ['coffee']
+    },
+
+    coffeePreprocessor: {
+      // options passed to the coffee compiler
+      options: {
+        bare: true,
+        sourceMap: false
+      },
+      // transforming the filenames
+      transformPath: function(path) {
+        return path.replace(/\.coffee$/, '.js');
+      }
+    },
 
 
     // test results reporter to use
