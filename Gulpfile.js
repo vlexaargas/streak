@@ -8,9 +8,7 @@ var paths = {
   scripts: "./app/js/**/*.js",
   styles: "./app/scss/**/*.scss",
   tests: "./tests/**/*Spec.js"
-}
-
-process.env['CHROME_CANARY_BIN'] = 'google-chrome-unstable';
+};
 
 gulp.task('sass', function () {
   gulp.src("./app/scss/main.scss")
@@ -18,12 +16,12 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./app/css'));
 });
 
-gulp.task('uglify', function() {
+/*gulp.task('uglify', function() {
   gulp.src(paths.scripts)
     .pipe(concat('production.js'))
     .pipe(uglify({outSourceMap: false}))
     .pipe(gulp.dest('./app/dist'))
-});
+});*/
 
 gulp.task('test', function() {
   // Be sure to return the stream
@@ -40,7 +38,7 @@ gulp.task('default', function() {
 });
 
 gulp.task('watch', function () {
-  gulp.watch(paths.scripts, ['uglify']);
+//  gulp.watch(paths.scripts, ['uglify']);
   gulp.watch(paths.styles, ['sass']);
 
   gulp.src(paths.tests)
