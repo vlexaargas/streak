@@ -1,7 +1,5 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
-    concat = require('gulp-concat'),
-    uglify = require('gulp-uglify'),
     karma = require('gulp-karma'),
     refresh = require('gulp-livereload'),
     lrserver = require('tiny-lr')(),
@@ -40,13 +38,6 @@ gulp.task('sass', function () {
     .pipe(gulp.dest('./app/css'));
 });
 
-/*gulp.task('uglify', function() {
-  gulp.src(paths.scripts)
-    .pipe(concat('production.js'))
-    .pipe(uglify({outSourceMap: false}))
-    .pipe(gulp.dest('./app/dist'))
-});*/
-
 gulp.task('test', function() {
   // Be sure to return the stream
   return gulp.src(paths.tests)
@@ -56,13 +47,9 @@ gulp.task('test', function() {
     }));
 });
 
-gulp.task('default', function() {
-  gulp.run('serve');
-  gulp.run('watch');
-});
+gulp.task('default',['watch', 'serve'], function() {});
 
-gulp.task('watch', function () {
-//  gulp.watch(paths.scripts, ['uglify']);
+gulp.task('watch',['sass'], function () {
   gulp.watch(paths.styles, ['sass']);
   gulp.watch(paths.html, ['html']);
 
