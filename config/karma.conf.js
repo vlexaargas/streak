@@ -14,8 +14,16 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      '../app/bower_components/angular/angular.js',
+      '../app/bower_components/angular-mocks/angular-mocks.js',
+      '../app/bower_components/firebase/firebase.js',
+      '../app/bower_components/angularfire/angularfire.js',
+      '../app/bower_components/angular-route/angular-route.js',
+      '../app/bower_components/angular-bootstrap/ui-bootstrap.js',
+      '../app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      '../app/bower_components/firebase-simple-login',
       '../app/js/**/*.js',
-      '../tests/**/*Spec.js',
+      '../tests/**/*.js',
       '../tests/**/*.coffee'
     ],
 
